@@ -1,0 +1,14 @@
+.svg{
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  opacity: 0;
+}
+
+.svg-circle-bg {
+  fill: none;
+}
+
+.svg-circle {
+  fill: none;
+}

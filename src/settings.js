@@ -1,0 +1,2 @@
+export const TIME_TO_CHOOSE = 5000
+export const YOUR_SELECTION_NOT_SELECTED = 4
