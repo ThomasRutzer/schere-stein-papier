@@ -1,5 +1,9 @@
 import create from "zustand"
 
+import EvaluationService from "./services/evaluationService"
+import { YOU, OPPONENT } from "./settings"
+
+
 const useStore = create(set => ({
   you: null,
   other: null,
@@ -11,11 +15,12 @@ const useStore = create(set => ({
   lastWinner: null,
   sceneLoaded: false,
   saveScore: () => set(state => {
-    const winner = state.you === state.other ?  "you" : "other"
+    const winner = EvaluationService.youBeat(state.you, state.other)
+
     return {
       lastWinner: winner,
-      otherWon: winner === "other" ? state.otherWon + 1 : state.otherWon,
-      youWon: winner === "you" ? state.youWon + 1 : state.youWon
+      otherWon: winner === OPPONENT ? state.otherWon + 1 : state.otherWon,
+      youWon: winner === YOU ? state.youWon + 1 : state.youWon
     }
   }),
   reset: () => set(state => ({
