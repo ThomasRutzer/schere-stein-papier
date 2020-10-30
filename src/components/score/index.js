@@ -6,8 +6,11 @@ const Score = () => {
 
   return (
     <div className="score">
-      <p>
-        Score: you: {state.youWon} : other {state.otherWon}
+      <p className="score__label">
+        Score
+      </p>
+      <p className="score__label">
+      👀 {state.youWon}:{state.otherWon} 🖥️
       </p>
     </div>
   )

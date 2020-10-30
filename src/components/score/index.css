@@ -7,4 +7,9 @@
   padding: 2px 4px;
   box-sizing: border-box;
   border-radius: var(--border-radius-default);
+  box-shadow: 0 6px var(--color-primary-shaded);
+}
+
+.score__label {
+  margin: 0;
 }
