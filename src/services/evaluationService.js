@@ -1,5 +1,5 @@
 import { 
-  YOU, OPPONENT, DRAW,
+  YOU, OPPONENT, DRAW, YOUR_SELECTION_NOT_SELECTED,
   SCISSOR, ROCK, PAPER
  } from "./../settings"
 
@@ -21,7 +21,7 @@ const config = {
 class EvaluationService {
   static youBeat(yourSelection, oppenentsSelection) {
     if (yourSelection === oppenentsSelection) return DRAW
-    if (!yourSelection) return OPPONENT
+    if (yourSelection === YOUR_SELECTION_NOT_SELECTED) return OPPONENT
     return config[yourSelection].beats === oppenentsSelection ? YOU : OPPONENT
   }
 }

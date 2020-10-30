@@ -4,10 +4,10 @@ import anime from "animejs"
 import useStore from "./../store"
 import Model from "./Model"
 import Loading from "./Loading"
-import { 
+import {
   MODEL_OUTSIDE_POSITION_TOP, MODEL_OUTSIDE_POSITION_BOTTOM,
   CONTROL_REVEAL_TRANSITION_DURATION,
-  ROCK, SCISSOR, PAPER 
+  ROCK, SCISSOR, PAPER
 } from "./../settings"
 import randomFromStringList from "./../utils/randomFromStringList"
 
