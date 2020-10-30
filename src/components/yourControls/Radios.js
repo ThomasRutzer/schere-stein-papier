@@ -25,7 +25,10 @@ const YouSelect = () => {
       translateY: [250, 0],
       duration: 1200,
       easing: "easeOutQuad",
-      delay: anime.stagger(100)
+      delay: anime.stagger(100),
+      begin: () => {
+        useStore.setState({ message: "Choose"})
+      }
     })
   }, [wrapper])
 

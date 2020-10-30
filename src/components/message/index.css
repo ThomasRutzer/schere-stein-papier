@@ -1,0 +1,19 @@
+.message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(1rem, -0.875rem + 14.333vw, 10rem);
+  margin: 0;
+}
+
+.char {
+  display: inline-block;
+  opacity: 0;
+}
+
+.word {
+  display: block;
+  text-transform: uppercase;
+  color: var(--color-secondary-shaded);
+}
