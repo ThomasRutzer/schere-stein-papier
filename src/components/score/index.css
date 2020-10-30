@@ -8,6 +8,8 @@
   box-sizing: border-box;
   border-radius: var(--border-radius-default);
   box-shadow: 0 6px var(--color-primary-shaded);
+  width: 96px;
+  text-align: center;
 }
 
 .score__label {
