@@ -1,0 +1,30 @@
+.start-button {
+	color: var(--color-white);
+	background: none;
+	cursor: pointer;
+	display: inline-block;
+	text-transform: uppercase;
+	outline: none;
+	position: relative;
+  background: var(--color-red);
+	color: #fff;
+	box-shadow: 0 6px var(--color-red-shaded);
+  transition: none;
+  border-radius: 50%;
+  border: none;
+	width: 90px;
+  height: 90px;
+  font-family: inherit;
+  font-size: 18px;
+  transform: translateY(250px);
+}
+
+.start-button:hover {
+	box-shadow: 0 8px var(--color-red-shaded);
+	top: -2px;
+}
+
+.start-button:active {
+	box-shadow: 0 0 var(--color-red-shaded);
+	top: 6px;
+}

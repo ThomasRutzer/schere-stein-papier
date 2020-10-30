@@ -1,0 +1,24 @@
+.progress-bar {
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  margin: 0 auto;
+}
+
+.progress-bar__svg {
+  opacity: 0;
+}
+
+.progress-bar__circle-bg {
+  fill: none;
+  stroke: var(--color-primary);
+}
+
+.progress-bar__label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-primary);
+  margin: 0;
+}

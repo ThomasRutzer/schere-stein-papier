@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react"
 import anime from "animejs"
 
 import useStore from "../../store"
+import "./StartButton.css"
 
 const Button = () => {
   const wrapper = useRef()
@@ -12,15 +13,24 @@ const Button = () => {
 
       anime({
         targets: wrapper.current,
-        translateY: ["100%", 0],
-        opacity: 1,
-        duration: CONTROL_REVEAL_TRANSITION_DURATION
+        translateY: ["250px", 0],
+        duration: CONTROL_REVEAL_TRANSITION_DURATION / 2,
+        delay: 250,
+        easing: "linear",
       })
   }, [wrapper])
 
   const startGame = () => {
-    useStore.setState({
-      othersIsChoosing: true
+    anime({
+      targets: wrapper.current,
+      translateY: [0, "250px"],
+      duration: 300,
+      easing: "easeInQuad",
+      complete: () => {
+        useStore.setState({
+          othersIsChoosing: true
+        })
+      }
     })
   }
 

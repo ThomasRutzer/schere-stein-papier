@@ -1,11 +1,11 @@
 import useStore from "../../store"
 import "./index.css"
 import StartButton from "./StartButton"
-import YouSelect from "../YouSelect"
+import Radios from "./Radios"
+import ProgressBar from "./../progressBar"
 
 const YourControls = () => {
   const state = useStore()
- 
 
   return (
     <div className="your-controls">
@@ -14,14 +14,10 @@ const YourControls = () => {
       }
 
       { state.youAreChoosing && !state.you &&
-        <YouSelect />
-      }
-
-      { state.lastWinner &&
-        <p>
-          {state.lastWinner === "you" && <span>WIN!!!</span>}
-          {state.lastWinner !== "you" && <span>LOSE!!!</span>}
-        </p>
+        <div className="your-controls__selection">
+          <ProgressBar />
+          <Radios />
+        </div>
       }
     </div>
   )

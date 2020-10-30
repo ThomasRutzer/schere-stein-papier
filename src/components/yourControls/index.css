@@ -1,13 +1,15 @@
 .your-controls {
   position: fixed;
   bottom: 0;
+  width: 100%;
   z-index: 1;
+  height: 200px;
+  display: flex;
+  justify-content: center;
 }
 
-.start-button {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: none;
-  opacity: 0;
+.your-controls__selection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
