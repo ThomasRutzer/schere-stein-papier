@@ -8,3 +8,15 @@ canvas {
   height: 100vh;
   overflow: hidden;
 }
+
+
+html {
+  --color-primary: #FE9F1B;
+  --color-secondary: #A866EE;
+  --color-white: #EBDCC3;
+  --border-radius-default: 4px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
