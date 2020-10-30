@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 import { TIME_TO_CHOOSE, YOUR_SELECTION_NOT_SELECTED } from "./../settings"
 import useStore from "./../store"
@@ -6,6 +6,7 @@ import Progressbar from "./ProgressBar"
 
 
 const YouSelect = () => {
+  const state = useStore()
   const [now] = useState(Date.now())
   const [yourSelection, setYourSelection] = useState(YOUR_SELECTION_NOT_SELECTED);
   const handleChange = (e) => {
@@ -14,8 +15,6 @@ const YouSelect = () => {
 
   useEffect(() => {
     const exactTimeout = TIME_TO_CHOOSE - (Math.abs(Date.now() - now))
-    console.log(Math.abs(Date.now() - now))
-    console.log(exactTimeout)
     const tiemout = setTimeout(() => {
       useStore.setState({
         you: Number(yourSelection)
@@ -23,7 +22,7 @@ const YouSelect = () => {
     }, exactTimeout)
 
     return () => clearTimeout(tiemout)
-  }, [yourSelection, now])
+  }, [yourSelection, now, state.otherWon, state.youWon, state.you, state.other])
 
   return (
     <>

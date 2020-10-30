@@ -4,25 +4,76 @@ import anime from "animejs"
 import useStore from "./../store"
 import Model from "./Model"
 import Loading from "./Loading"
+import { MODEL_OUTSIDE_POSITION_TOP, MODEL_OUTSIDE_POSITION_BOTTOM } from "./../settings"
 
 function Oppenent() {
   const state = useStore()
   const hand = useRef()
+  const reset = useStore(state => state.reset)
+  const saveScore = useStore(state => state.saveScore)
 
   useEffect(() => {
-    if (!hand.current || !state.othersIsChoosing) return
+    if (!state.othersIsChoosing && !state.youAreChoosing) {
+      revealModelAttacking()
+    }
+  }, [state.othersIsChoosing, state.youAreChoosing])
 
-    startOther()
+  useEffect(() => {
+    if (!state.othersIsChoosing) return
+    wiggleModel()
   }, [state.othersIsChoosing])
 
-  function startOther() {
+  useEffect(() => {
+    if (state.other && state.you) {
+      revealModelChoosing()
+    }
+  }, [state.other, state.you])
+
+  const revealModelAttacking = () => {
+    anime({
+      targets: hand.current.position,
+      keyframes: [
+        { y: MODEL_OUTSIDE_POSITION_BOTTOM[1] },
+        { y: -6 },
+        { y: -6 },
+        { y: MODEL_OUTSIDE_POSITION_BOTTOM[1] },
+      ],
+      easing: "easeOutQuad",
+      duration: 2000
+    })
+  }
+
+  const revealModelChoosing = () => {
+    anime({
+      targets: hand.current.position,
+      y: [MODEL_OUTSIDE_POSITION_TOP[1], -2],
+      duration: 2000,
+      complete: hideModelChoosing
+    })
+  }
+
+  const hideModelChoosing = () => {
+    anime({
+      targets: hand.current.position,
+      y: [-2, MODEL_OUTSIDE_POSITION_TOP[1]],
+      duration: 2000,
+      complete: () => {
+        console.log("reset")
+        saveScore()
+        reset()
+      }
+    })
+  }
+
+  function wiggleModel() {
     const tl = anime.timeline({
       easing: 'easeOutExpo',
       duration: 700,
       complete: () => {
         useStore.setState({
           other: 1,
-          othersIsChoosing: false
+          othersIsChoosing: false,
+          youAreChoosing: true
         })
       }
     });
@@ -30,7 +81,7 @@ function Oppenent() {
     tl
       .add({
         targets: hand.current.position,
-        y: [4, -2],
+        y: [MODEL_OUTSIDE_POSITION_TOP[1], -2],
       })
       .add({
         targets: hand.current.position,
@@ -49,59 +100,20 @@ function Oppenent() {
       })
       .add({
         targets: hand.current.position,
-        y: 4,
+        y: MODEL_OUTSIDE_POSITION_TOP[1],
         delay: 300
       })
   }
 
-  // const positionAnimationRef = useRef()
-  // const positionAnimation = useSpring({
-  //   y: !state.hideOther ? -2 : 4,
-  //   from: { y: 4 },
-  //   config: { mass: 3 },
-  //   ref: positionAnimationRef
-  // })
-
-  // const rotationAnimationRef = useRef()
-  // const rotationAnimation = useSpring({
-  //   y: 0,
-  //   from: { y: state.othersIsChoosing ? 1 : 0 },
-  //   loop: { reverse: true },
-  //   config: { duration: 100 },
-  //   ref: rotationAnimationRef
-  // })
-
-  // useChain([positionAnimationRef, rotationAnimationRef])
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //    stopChoosing()
-  //   }, 3000)
-
-  //   setTimeout(() => {
-  //     console.log("now")
-  //     useStore.setState({
-  //       other: 1
-  //     })
-  //   }, 3500)
-  // }, [])
-
-  // const stopChoosing = () => {
-  //   useStore.setState({
-  //     othersIsChoosing: false
-  //   })
-  // }
-
-  // const saveOthersScore = () => {
-
-  // }
-
   return (
     <Suspense fallback={<Loading />}>
-      {/* <a.group position-y={positionAnimation.y} position-x={rotationAnimation.y}>
-          <Model path="/models/pizza.gltf" />
-        </a.group> */}
-      <group ref={hand} position={[0, 4, 0]}>
+      <group
+        ref={hand}
+        position={
+          state.othersIsChoosing || state.youAreChoosing
+            ? MODEL_OUTSIDE_POSITION_TOP
+            : MODEL_OUTSIDE_POSITION_BOTTOM
+        }>
         <Model />
       </group>
     </Suspense>

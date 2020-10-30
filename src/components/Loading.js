@@ -1,17 +1,18 @@
+import { useProgress, Html } from "@react-three/drei"
+import { useEffect } from "react"
+
+import useStore from "./../store"
+
 function Loading() {
-  return (
-    <mesh visible position={[0, 0, 0]} rotation={[0, 0, 0]}>
-      <sphereGeometry attach="geometry" args={[1, 16, 16]} />
-      <meshStandardMaterial
-        attach="material"
-        color="white"
-        transparent
-        opacity={0.6}
-        roughness={1}
-        metalness={0}
-      />
-    </mesh>
-  );
+  const { progress } = useProgress()
+
+  useEffect(() => {
+    if (progress === 100) {
+      useStore.setState({ sceneLoaded: true })
+    }
+  }, [progress])
+
+  return <Html center>{progress} % loaded</Html>
 }
 
 export default Loading

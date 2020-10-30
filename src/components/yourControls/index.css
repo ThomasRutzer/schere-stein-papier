@@ -1,0 +1,13 @@
+.your-controls {
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+}
+
+.start-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  opacity: 0;
+}

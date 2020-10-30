@@ -1,11 +1,11 @@
-import React, { useRef, useState, Suspense, useEffect } from "react"
-import { Canvas, useFrame } from "react-three-fiber"
+import React from "react"
+import { Canvas } from "react-three-fiber"
 
 import Oppenent from "./Oppenent"
 
 function Scene() {
   return (
-    <Canvas>
+    <Canvas >
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
       <Oppenent />

@@ -1,0 +1,10 @@
+.score {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 2px 4px;
+  box-sizing: border-box;
+  border-radius: var(--border-radius-default);
+}
