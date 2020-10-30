@@ -1,5 +1,5 @@
 import { CONTROL_REVEAL_TRANSITION_DURATION } from "./../../settings"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import anime from "animejs"
 
 import useStore from "../../store"
@@ -10,14 +10,13 @@ const Button = () => {
 
   useEffect(() => {
     if (!wrapper.current) return
-
-      anime({
-        targets: wrapper.current,
-        translateY: ["250px", 0],
-        duration: CONTROL_REVEAL_TRANSITION_DURATION / 2,
-        delay: 250,
-        easing: "linear",
-      })
+    anime({
+      targets: wrapper.current,
+      translateY: ["250px", 0],
+      duration: CONTROL_REVEAL_TRANSITION_DURATION / 2,
+      delay: 250,
+      easing: "linear"
+    })
   }, [wrapper])
 
   const startGame = () => {
