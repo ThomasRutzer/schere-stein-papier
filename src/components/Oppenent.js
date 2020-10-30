@@ -4,7 +4,12 @@ import anime from "animejs"
 import useStore from "./../store"
 import Model from "./Model"
 import Loading from "./Loading"
-import { MODEL_OUTSIDE_POSITION_TOP, MODEL_OUTSIDE_POSITION_BOTTOM } from "./../settings"
+import { 
+  MODEL_OUTSIDE_POSITION_TOP, MODEL_OUTSIDE_POSITION_BOTTOM,
+  CONTROL_REVEAL_TRANSITION_DURATION,
+  ROCK, SCISSOR, PAPER 
+} from "./../settings"
+import randomFromStringList from "./../utils/randomFromStringList"
 
 function Oppenent() {
   const state = useStore()
@@ -34,35 +39,34 @@ function Oppenent() {
       targets: hand.current.position,
       keyframes: [
         { y: MODEL_OUTSIDE_POSITION_BOTTOM[1] },
-        { y: -6 },
-        { y: -6 },
+        { y: -7 },
+        { y: -7 },
         { y: MODEL_OUTSIDE_POSITION_BOTTOM[1] },
       ],
-      easing: "easeOutQuad",
-      duration: 2000
+      easing: "linear",
+      duration: CONTROL_REVEAL_TRANSITION_DURATION
     })
   }
 
   const revealModelChoosing = () => {
-    anime({
-      targets: hand.current.position,
-      y: [MODEL_OUTSIDE_POSITION_TOP[1], -2],
-      duration: 2000,
-      complete: hideModelChoosing
-    })
-  }
-
-  const hideModelChoosing = () => {
-    anime({
-      targets: hand.current.position,
-      y: [-2, MODEL_OUTSIDE_POSITION_TOP[1]],
+    const tl = anime.timeline({
       duration: 2000,
       complete: () => {
-        console.log("reset")
         saveScore()
         reset()
       }
     })
+
+    tl
+      .add({
+        targets: hand.current.position,
+        y: [MODEL_OUTSIDE_POSITION_TOP[1], -2],
+      })
+
+      .add({
+        targets: hand.current.position,
+        y: [-2, MODEL_OUTSIDE_POSITION_TOP[1]],
+      })
   }
 
   function wiggleModel() {
@@ -71,7 +75,7 @@ function Oppenent() {
       duration: 700,
       complete: () => {
         useStore.setState({
-          other: 1,
+          other: randomFromStringList([ROCK, SCISSOR, PAPER]),
           othersIsChoosing: false,
           youAreChoosing: true
         })

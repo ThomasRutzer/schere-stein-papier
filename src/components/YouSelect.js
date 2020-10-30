@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
 
-import { TIME_TO_CHOOSE, YOUR_SELECTION_NOT_SELECTED } from "./../settings"
+import { 
+  TIME_TO_CHOOSE, YOUR_SELECTION_NOT_SELECTED,
+  SCISSOR, ROCK, PAPER 
+} from "./../settings"
 import useStore from "./../store"
 import Progressbar from "./ProgressBar"
 
@@ -17,7 +20,7 @@ const YouSelect = () => {
     const exactTimeout = TIME_TO_CHOOSE - (Math.abs(Date.now() - now))
     const tiemout = setTimeout(() => {
       useStore.setState({
-        you: Number(yourSelection)
+        you: yourSelection
       })
     }, exactTimeout)
 
@@ -33,28 +36,28 @@ const YouSelect = () => {
           <input
             type="radio"
             name="you-select"
-            value="1"
+            value={ SCISSOR }
             onChange={handleChange}
           />
-            Option 1
+            Scissor
           </label>
         <label>
           <input
             type="radio"
             name="you-select"
-            value="2"
+            value={ ROCK }
             onChange={handleChange}
           />
-            Option 2
+            Rock
           </label>
         <label>
           <input
             type="radio"
             name="you-select"
-            value="3"
+            value={ PAPER }
             onChange={handleChange}
           />
-            Option 3
+            Paper
           </label>
       </div>
     </>
