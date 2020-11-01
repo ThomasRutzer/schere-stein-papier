@@ -1,4 +1,4 @@
-import React, { useRef, useState, Suspense, useEffect } from "react"
+import React, { useRef, Suspense, useEffect } from "react"
 import anime from "animejs"
 
 import useStore from "./../store"
@@ -50,7 +50,10 @@ function Oppenent() {
 
   const revealModelChoosing = () => {
     const tl = anime.timeline({
-      duration: 2000,
+      duration: 2400,
+      begin: () => {
+        useStore.setState({ message: "And the winner is…"})
+      },
       complete: () => {
         saveScore()
         reset()
@@ -66,6 +69,7 @@ function Oppenent() {
       .add({
         targets: hand.current.position,
         y: [-2, MODEL_OUTSIDE_POSITION_TOP[1]],
+        delay: 400
       })
   }
 
