@@ -2,7 +2,10 @@
   position: relative;
   display: inline-block;
   width: 64px;
+  height: 64px;
+  border-radius: 50%;
   margin: 0 auto;
+  background-color: var(--color-white);
 }
 
 .progress-bar__svg {

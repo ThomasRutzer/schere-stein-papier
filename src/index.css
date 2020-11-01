@@ -9,11 +9,11 @@ canvas {
   overflow: hidden;
 }
 
-html {
+:root {
   --color-primary: #FE9F1B;
   --color-primary-shaded: #8e5507;
   --color-secondary: #A866EE;
-  --color-secondary-shaded: #472071;
+  --color-secondary-shaded: #894eca;
   --color-white: #EBDCC3;
   --color-white-shaded: #b7b7b7;
   --color-red: #F74803;
@@ -22,5 +22,4 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-}
+  font-family: 'Righteous', sans-serif;}

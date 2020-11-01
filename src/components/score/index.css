@@ -2,12 +2,12 @@
   position: fixed;
   right: 20px;
   top: 20px;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
   color: var(--color-white);
-  padding: 2px 4px;
+  padding:  4px;
   box-sizing: border-box;
   border-radius: var(--border-radius-default);
-  box-shadow: 0 6px var(--color-primary-shaded);
+  box-shadow: 0 6px var(--color-secondary-shaded);
   width: 96px;
   text-align: center;
 }
