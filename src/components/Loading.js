@@ -1,18 +1,21 @@
-import { useProgress, Html } from "@react-three/drei"
+import { useProgress } from "@react-three/drei"
 import { useEffect } from "react"
 
 import useStore from "./../store"
 
 function Loading() {
   const { progress } = useProgress()
+  const init = useStore(state => state.init)
+
+  useEffect(init)
 
   useEffect(() => {
     if (progress === 100) {
-      useStore.setState({ sceneLoaded: true })
+      init()
     }
-  }, [progress])
+  }, [init, progress])
 
-  return <Html center>{progress} % loaded</Html>
+  return ""
 }
 
 export default Loading
