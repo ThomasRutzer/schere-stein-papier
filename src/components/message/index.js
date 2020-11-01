@@ -41,7 +41,7 @@ const Message = ({ text }) => {
         targets: target,
         translateY: [0, -10],
         opacity: [1, 0],
-        delay: anime.stagger(100, {start: 300}),
+        delay: anime.stagger(100, {start: 200}),
         direction: "reverse"
       })
   }, [splitted])
