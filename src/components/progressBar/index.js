@@ -5,6 +5,7 @@ import { TIME_TO_CHOOSE } from "./../../settings"
 import "./index.css"
 
 const ProgressBar = ({ size = 64, strokeWidth = 8 }) => {
+  const intervalRef = useRef()
   const svgRef = useRef()
   const labelRef = useRef()
   const circleRef = useRef()
@@ -31,14 +32,11 @@ const ProgressBar = ({ size = 64, strokeWidth = 8 }) => {
         stroke: "#F74803",
         strokeDashoffset: [anime.setDashoffset, 0],
       })
-
-
   }, [svgRef, circleRef])
 
   useEffect(() => {
     if (!labelRef.current) return
 
-    let labelInterval = null
     anime({
       targets: labelRef.current,
       color: "#F74803",
@@ -47,16 +45,20 @@ const ProgressBar = ({ size = 64, strokeWidth = 8 }) => {
         let begin = TIME_TO_CHOOSE / 1000
         labelRef.current.innerText = begin
 
-        labelInterval = setInterval(() => {
+        intervalRef.current = setInterval(() => {
           begin = begin - 1
           labelRef.current.innerText = begin
         }, 1000)
       },
       complete: () => {
-        clearInterval(labelInterval)
+        clearInterval(intervalRef)
       }
     })
-  }, [labelRef])
+
+    return () => {
+      clearInterval(intervalRef.current)
+    }
+  }, [labelRef, intervalRef])
 
   return (
     <div className="progress-bar">
