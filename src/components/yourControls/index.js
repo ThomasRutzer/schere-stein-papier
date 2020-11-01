@@ -1,7 +1,7 @@
 import useStore from "../../store"
 import "./index.css"
-import StartButton from "./StartButton"
-import Radios from "./Radios"
+import StartButton from "./../startButton"
+import Radios from "../radios"
 import ProgressBar from "./../progressBar"
 
 const YourControls = () => {

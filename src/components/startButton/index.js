@@ -1,15 +1,16 @@
 import { CONTROL_REVEAL_TRANSITION_DURATION } from "./../../settings"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import anime from "animejs"
 
 import useStore from "../../store"
-import "./StartButton.css"
+import "./index.css"
 
 const Button = () => {
   const wrapper = useRef()
 
   useEffect(() => {
     if (!wrapper.current) return
+    
     anime({
       targets: wrapper.current,
       translateY: ["250px", 0],

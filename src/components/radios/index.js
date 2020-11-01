@@ -6,16 +6,13 @@ import {
   SCISSOR, ROCK, PAPER
 } from "../../settings"
 import useStore from "../../store"
-import "./Radios.css"
+import "./index.css"
 
 const YouSelect = () => {
+  const timeToChooseTimeout = useRef()
   const wrapper = useRef()
   const state = useStore()
   const [now] = useState(Date.now())
-  const [yourSelection, setYourSelection] = useState(YOUR_SELECTION_NOT_SELECTED);
-  const handleChange = (e) => {
-    setYourSelection(e.target.value);
-  }
 
   useEffect(() => {
     if (!wrapper.current) return
@@ -27,21 +24,38 @@ const YouSelect = () => {
       easing: "easeOutQuad",
       delay: anime.stagger(100),
       begin: () => {
-        useStore.setState({ message: "Choose"})
-      }
+        useStore.setState({ message: "Choose" })
+      },
     })
   }, [wrapper])
 
   useEffect(() => {
     const exactTimeout = TIME_TO_CHOOSE - (Math.abs(Date.now() - now))
-    const tiemout = setTimeout(() => {
-      useStore.setState({
-        you: yourSelection
-      })
+    timeToChooseTimeout.current = setTimeout(() => {
+      saveSelection(YOUR_SELECTION_NOT_SELECTED)
     }, exactTimeout)
 
-    return () => clearTimeout(tiemout)
-  }, [yourSelection, now, state.otherWon, state.youWon, state.you, state.other])
+    return () => clearTimeout(timeToChooseTimeout.current)
+  }, [now, state.you])
+
+  const handleChange = (e) => {
+    anime({
+      targets: wrapper.current.childNodes,
+      translateY: [0, 250],
+      duration: 700,
+      easing: "easeOutQuad",
+      delay: anime.stagger(50),
+      complete: () => {
+        saveSelection(e.target.value);
+      },
+    })
+  }
+
+  const saveSelection = you => {
+    useStore.setState({
+      you
+    })
+  }
 
   return (
     <div ref={wrapper} className="radios">
