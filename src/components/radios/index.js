@@ -70,7 +70,7 @@ const YouSelect = () => {
             />
             <span className="radio__control"></span>
           </span>
-          <span className="radio__label">Rock ⛰️</span>
+          <span className="radio__label">Rock ✊</span>
         </label>
       </div>
       <div className="radio">
@@ -84,7 +84,7 @@ const YouSelect = () => {
             />
             <span className="radio__control"></span>
           </span>
-          <span className="radio__label">Scissor ✂️</span>
+          <span className="radio__label">Scissor ✌️</span>
         </label>
       </div>
       <div className="radio">
@@ -98,7 +98,7 @@ const YouSelect = () => {
             />
             <span className="radio__control"></span>
           </span>
-          <span className="radio__label">Paper 📰</span>
+          <span className="radio__label">Paper ✋</span>
         </label>
       </div>
     </div>
