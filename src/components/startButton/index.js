@@ -7,6 +7,7 @@ import "./index.css"
 
 const Button = () => {
   const wrapper = useRef()
+  const start = useStore(state => state.start)
 
   useEffect(() => {
     if (!wrapper.current) return
@@ -26,12 +27,7 @@ const Button = () => {
       translateY: [0, "250px"],
       duration: 300,
       easing: "easeInQuad",
-      complete: () => {
-        useStore.setState({
-          othersIsChoosing: true,
-          currentPose: "CHOOSING"
-        })
-      }
+      complete: start
     })
   }
 

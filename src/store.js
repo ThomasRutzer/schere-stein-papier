@@ -1,11 +1,12 @@
 import create from "zustand"
 
 import EvaluationService from "./services/evaluationService"
-import { 
+import {
   YOU, OPPONENT, DRAW,
+  ROCK, SCISSOR, PAPER,
   MESSAGE_DRAW, MESSAGE_OPPONENT_WON, MESSSAGE_YOU_WON
- } from "./settings"
-
+} from "./settings"
+import randomFromStringList from "./utils/randomFromStringList"
 
 const useStore = create(set => ({
   you: null,
@@ -19,8 +20,16 @@ const useStore = create(set => ({
   lastWinner: null,
   sceneLoaded: false,
   message: null,
+  
   init: () => set(state => ({
     message: "Let's start"
+  })),
+  start: () => set(state => ({
+    othersIsChoosing: true,
+    currentPose: "CHOOSING"
+  })),
+  reveal: () => set(state => ({
+    message: "And the winner is…"
   })),
   saveYours: (you) => set(state => {
     return {
@@ -28,11 +37,16 @@ const useStore = create(set => ({
       currentPose: `REVEAL_${state.other}`
     }
   }),
+  saveOther: () => set(state => ({
+    other: randomFromStringList([ROCK, SCISSOR, PAPER]),
+    othersIsChoosing: false,
+    youAreChoosing: true
+  })),
   saveScore: () => set(state => {
     const winner = EvaluationService.youBeat(state.you, state.other)
-    const message = winner === DRAW 
-      ? MESSAGE_DRAW : winner === OPPONENT 
-        ? MESSAGE_OPPONENT_WON 
+    const message = winner === DRAW
+      ? MESSAGE_DRAW : winner === OPPONENT
+        ? MESSAGE_OPPONENT_WON
         : MESSSAGE_YOU_WON
 
     return {
