@@ -1,7 +1,6 @@
 import { useThree, useFrame, extend } from "react-three-fiber"
 
 const CameraByFrameRotation = () => {
-  console.log("render")
   let angle = 0;
   const { camera } = useThree()
 
