@@ -11,8 +11,8 @@ import "./index.css"
 const YouSelect = () => {
   const timeToChooseTimeout = useRef()
   const wrapper = useRef()
-  const state = useStore()
   const [now] = useState(Date.now())
+  const saveYours = useStore(state => state.saveYours)
 
   useEffect(() => {
     if (!wrapper.current) return
@@ -32,11 +32,11 @@ const YouSelect = () => {
   useEffect(() => {
     const exactTimeout = TIME_TO_CHOOSE - (Math.abs(Date.now() - now))
     timeToChooseTimeout.current = setTimeout(() => {
-      saveSelection(YOUR_SELECTION_NOT_SELECTED)
+      saveYours(YOUR_SELECTION_NOT_SELECTED)
     }, exactTimeout)
 
     return () => clearTimeout(timeToChooseTimeout.current)
-  }, [now, state.you])
+  }, [now, saveYours])
 
   const handleChange = (e) => {
     anime({
@@ -46,14 +46,8 @@ const YouSelect = () => {
       easing: "easeOutQuad",
       delay: anime.stagger(50),
       complete: () => {
-        saveSelection(e.target.value);
+        saveYours(e.target.value)
       },
-    })
-  }
-
-  const saveSelection = you => {
-    useStore.setState({
-      you
     })
   }
 

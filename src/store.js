@@ -15,12 +15,19 @@ const useStore = create(set => ({
   roundCount: 0,
   otherWon: 0,
   youWon: 0,
+  currentPose: "CHALLENGING",
   lastWinner: null,
   sceneLoaded: false,
   message: null,
   init: () => set(state => ({
     message: "Let's start"
   })),
+  saveYours: (you) => set(state => {
+    return {
+      you,
+      currentPose: `REVEAL_${state.other}`
+    }
+  }),
   saveScore: () => set(state => {
     const winner = EvaluationService.youBeat(state.you, state.other)
     const message = winner === DRAW 
@@ -41,7 +48,8 @@ const useStore = create(set => ({
     othersIsChoosing: false,
     youAreChoosing: false,
     roundCount: state.roundCount++,
-    message: null
+    message: null,
+    currentPose: "CHALLENGING"
   })),
 }))
 

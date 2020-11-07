@@ -1,7 +1,7 @@
 export const TIME_TO_CHOOSE = 5000
 
 export const MODEL_OUTSIDE_POSITION_TOP = [0, 4, 0]
-export const MODEL_OUTSIDE_POSITION_BOTTOM = [0, -9, 0]
+export const MODEL_OUTSIDE_POSITION_BOTTOM = [0.4, -7.5, 0]
 
 export const CONTROL_REVEAL_TRANSITION_DURATION = 2000
 

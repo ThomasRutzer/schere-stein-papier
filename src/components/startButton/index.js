@@ -15,7 +15,7 @@ const Button = () => {
       targets: wrapper.current,
       translateY: ["250px", 0],
       duration: CONTROL_REVEAL_TRANSITION_DURATION / 2,
-      delay: 250,
+      delay: 420,
       easing: "linear"
     })
   }, [wrapper])
@@ -28,7 +28,8 @@ const Button = () => {
       easing: "easeInQuad",
       complete: () => {
         useStore.setState({
-          othersIsChoosing: true
+          othersIsChoosing: true,
+          currentPose: "CHOOSING"
         })
       }
     })
