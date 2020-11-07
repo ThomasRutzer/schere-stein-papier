@@ -1,4 +1,4 @@
-import { useThree, useFrame, extend } from "react-three-fiber"
+import { useThree, useFrame } from "react-three-fiber"
 
 const CameraByFrameRotation = () => {
   let angle = 0;
