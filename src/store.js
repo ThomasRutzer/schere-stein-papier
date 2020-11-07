@@ -4,7 +4,7 @@ import EvaluationService from "./services/evaluationService"
 import {
   YOU, OPPONENT, DRAW,
   ROCK, SCISSOR, PAPER,
-  MESSAGE_DRAW, MESSAGE_OPPONENT_WON, MESSSAGE_YOU_WON
+  MESSAGE_DRAW, MESSAGE_OPPONENT_WON, MESSSAGE_YOU_WON, MESSAGE_START, MESSAGE_REVEAL
 } from "./settings"
 import randomFromStringList from "./utils/randomFromStringList"
 
@@ -20,16 +20,16 @@ const useStore = create(set => ({
   lastWinner: null,
   sceneLoaded: false,
   message: null,
-  
+
   init: () => set(state => ({
-    message: "Let's start"
+    message: MESSAGE_START
   })),
   start: () => set(state => ({
     othersIsChoosing: true,
     currentPose: "CHOOSING"
   })),
   reveal: () => set(state => ({
-    message: "And the winner is…"
+    message: MESSAGE_REVEAL
   })),
   saveYours: (you) => set(state => {
     return {

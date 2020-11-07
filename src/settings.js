@@ -17,4 +17,6 @@ export const DRAW = "DRAW"
 export const MESSAGE_DRAW = "No one – it's a tie"
 export const MESSSAGE_YOU_WON = "You"
 export const MESSAGE_OPPONENT_WON = "Not you"
+export const MESSAGE_START = "Let's start"
+export const MESSAGE_REVEAL = "And the winner is…"
 
