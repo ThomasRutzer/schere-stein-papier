@@ -10,7 +10,7 @@ const Score = () => {
         Score
       </p>
       <p className="score__label">
-      👀 {state.youWon}:{state.otherWon}  🖥️
+      👀{state.youWon}:{state.otherWon} 🖥️
       </p>
     </div>
   )
