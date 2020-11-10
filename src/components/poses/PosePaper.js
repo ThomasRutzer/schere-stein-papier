@@ -5,7 +5,7 @@ import React, { useRef, useEffect } from "react"
 import { useGLTF } from "@react-three/drei/useGLTF"
 import anime from "animejs"
 
-import { MODEL_OUTSIDE_POSITION_TOP } from "./../../settings"
+import { MODEL_INSIDE_POSITION_TOP, MODEL_OUTSIDE_POSITION_TOP } from "./../../settings"
 
 export default function Model(props) {
   const group = useRef()
@@ -26,18 +26,23 @@ export default function Model(props) {
     tl
       .add({
         targets: group.current.position,
-        y: [MODEL_OUTSIDE_POSITION_TOP[1], -2],
+        y: [MODEL_OUTSIDE_POSITION_TOP[1], MODEL_INSIDE_POSITION_TOP[1]],
       })
 
       .add({
         targets: group.current.position,
-        y: [-2, MODEL_OUTSIDE_POSITION_TOP[1]],
+        y: MODEL_OUTSIDE_POSITION_TOP[1],
         delay: 400
       })
   }
 
   return (
-    <group ref={group} {...props} scale={[1.5, 1.5, 1.5]}>
+    <group 
+      ref={group} 
+      {...props} 
+      rotation={[0, 0, Math.PI]}
+      position={[0, MODEL_OUTSIDE_POSITION_TOP[1], 0]} 
+      scale={[1.5, 1.5, 1.5]}>
       <primitive object={nodes.Bone} />
       <skinnedMesh material={materials.skin} geometry={nodes.Cube.geometry} skeleton={nodes.Cube.skeleton} />
     </group>
