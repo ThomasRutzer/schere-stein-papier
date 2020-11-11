@@ -1,7 +1,8 @@
 {
   "name": "r3f-schere-stein-papier",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://thomasrutzer.github.io/schere-stein-papier",
   "dependencies": {
     "@react-three/drei": "^2.2.3",
     "@testing-library/jest-dom": "^5.11.4",
