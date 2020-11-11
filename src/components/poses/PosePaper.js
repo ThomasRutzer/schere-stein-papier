@@ -10,7 +10,7 @@ import useEnterAnimationFromTop from "./useEnterAnimationFromTop"
 
 const PosePaper = props => {
   const group = useRef()
-  const { nodes, materials } = useGLTF("./../models/paper.glb")
+  const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/models/paper.glb`)
   const enterAnimation = useEnterAnimationFromTop(group)
 
   useEffect(() => {
@@ -47,6 +47,6 @@ const PosePaper = props => {
   )
 }
 
-useGLTF.preload("./../models/paper.glb")
+useGLTF.preload(`${process.env.PUBLIC_URL}/models/paper.glb`)
 
 export default PosePaper

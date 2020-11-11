@@ -7,7 +7,7 @@ import useEnterAnimationFromTop from "./useEnterAnimationFromTop"
 
 const PoseRock = props => {
   const group = useRef()
-  const { nodes, materials } = useGLTF("./../models/rock.glb")
+  const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/models/rock.glb`)
   const enterAnimation = useEnterAnimationFromTop(group)
 
   useEffect(() => {
@@ -39,6 +39,6 @@ const PoseRock = props => {
   )
 }
 
-useGLTF.preload("./../models/rock.glb")
+useGLTF.preload(`${process.env.PUBLIC_URL}/models/rock.glb`)
 
 export default PoseRock

@@ -6,7 +6,7 @@ import { MODEL_OUTSIDE_POSITION_TOP, MODEL_INSIDE_POSITION_TOP } from "./../../s
 
 export default function Model(props) {
   const group = useRef()
-  const { nodes, materials } = useGLTF("./../models/choosing.glb")
+  const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/models/choosing.glb`)
 
   useEffect(() => {
     if (!group.current) return
@@ -59,4 +59,4 @@ export default function Model(props) {
   )
 }
 
-useGLTF.preload("./../models/choosing.glb")
+useGLTF.preload(`${process.env.PUBLIC_URL}/models/choosing.glb`)

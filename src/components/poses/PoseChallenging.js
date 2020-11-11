@@ -6,7 +6,7 @@ import { MODEL_OUTSIDE_POSITION_BOTTOM, CONTROL_REVEAL_TRANSITION_DURATION } fro
 
 const PoseChallenging = props => {
   const group = useRef()
-  const { nodes, materials } = useGLTF("./../models/challenging.glb")
+  const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/models/challenging.glb`)
 
   useEffect(() => {
     if (!group.current) return
@@ -34,6 +34,6 @@ const PoseChallenging = props => {
   )
 }
 
-useGLTF.preload("./../models/challenging.glb")
+useGLTF.preload(`${process.env.PUBLIC_URL}/models/challenging.glb`)
 
 export default PoseChallenging

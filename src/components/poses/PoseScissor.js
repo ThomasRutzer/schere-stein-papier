@@ -7,7 +7,7 @@ import useEnterAnimationFromTop from "./useEnterAnimationFromTop"
 
 const PoseScissor = props => {
   const group = useRef()
-  const { nodes, materials } = useGLTF("./../models/scissor.glb")
+  const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/models/scissor.glb`)
   const enterAnimation = useEnterAnimationFromTop()
 
   useEffect(() => {
@@ -40,6 +40,6 @@ const PoseScissor = props => {
   )
 }
 
-useGLTF.preload("./../models/scissor.glb")
+useGLTF.preload(`${process.env.PUBLIC_URL}/models/scissor.glb`)
 
 export default PoseScissor
