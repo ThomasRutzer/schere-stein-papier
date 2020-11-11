@@ -43,7 +43,7 @@ const useStore = create(set => ({
     youAreChoosing: true
   })),
   saveScore: () => set(state => {
-    const winner = EvaluationService.youBeat(state.you, state.other)
+    const winner = EvaluationService.getWinner(state.you, state.other)
     const message = winner === DRAW
       ? MESSAGE_DRAW : winner === OPPONENT
         ? MESSAGE_OPPONENT_WON

@@ -19,7 +19,7 @@ const config = {
 }
 
 class EvaluationService {
-  static youBeat(yourSelection, oppenentsSelection) {
+  static getWinner(yourSelection, oppenentsSelection) {
     if (yourSelection === oppenentsSelection) return DRAW
     if (yourSelection === YOUR_SELECTION_NOT_SELECTED) return OPPONENT
     return config[yourSelection].beats === oppenentsSelection ? YOU : OPPONENT
