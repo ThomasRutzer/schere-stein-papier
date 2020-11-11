@@ -7,8 +7,6 @@ function Loading() {
   const { progress } = useProgress()
   const init = useStore(state => state.init)
 
-  useEffect(init)
-
   useEffect(() => {
     if (progress === 100) {
       init()
