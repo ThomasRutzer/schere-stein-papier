@@ -16,7 +16,7 @@ export const YOU = "YOU"
 export const OPPONENT = "OPPONENT"
 export const DRAW = "DRAW"
 
-export const MESSAGE_DRAW = "No one – it's a tie"
+export const MESSAGE_DRAW = "It's a tie"
 export const MESSSAGE_YOU_WON = "You"
 export const MESSAGE_OPPONENT_WON = "Not you"
 export const MESSAGE_START = "Let's start"
