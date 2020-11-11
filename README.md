@@ -1,6 +1,6 @@
 # ✊✌️✋
 ![Preview](https://raw.githubusercontent.com/ThomasRutzer/schere-stein-papier/dev/preview.png)
-It's you👀 against a savage computer🖥️. [Can you win](thomasrutzer.github.io/schere-stein-papier)?
+It's you👀 against a savage computer🖥️. [Can you win](https://thomasrutzer.github.io/schere-stein-papier)?
 
 
 ## Core Tech
