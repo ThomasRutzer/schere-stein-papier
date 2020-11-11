@@ -10,10 +10,10 @@ const PoseChallenging = props => {
 
   useEffect(() => {
     if (!group.current) return
-    enterAnimation()
+    enter()
   }, [group])
 
-  const enterAnimation = () => {
+  const enter = () => {
     anime({
       targets: group.current.position,
       keyframes: [
