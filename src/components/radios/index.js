@@ -60,11 +60,11 @@ const YouSelect = () => {
               onChange={handleChange}
               type="radio"
               name="you-select"
-              value={ROCK}
+              value={SCISSOR}
             />
             <span className="radio__control"></span>
           </span>
-          <span className="radio__label">Rock ✊</span>
+          <span className="radio__label">Scissor ✌️</span>
         </label>
       </div>
       <div className="radio">
@@ -74,11 +74,11 @@ const YouSelect = () => {
               onChange={handleChange}
               type="radio"
               name="you-select"
-              value={SCISSOR}
+              value={ROCK}
             />
             <span className="radio__control"></span>
           </span>
-          <span className="radio__label">Scissor ✌️</span>
+          <span className="radio__label">Rock ✊</span>
         </label>
       </div>
       <div className="radio">
