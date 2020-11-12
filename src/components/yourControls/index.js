@@ -13,9 +13,13 @@ const YourControls = () => {
         <StartButton />
       }
 
-      { state.youAreChoosing && !state.you &&
+      { state.youAreChoosing &&
         <div className="your-controls__selection">
-          <ProgressBar />
+          <div className="your-controls__progress-bar">
+            {!state.you &&
+              <ProgressBar />
+            }
+          </div>
           <Radios />
         </div>
       }

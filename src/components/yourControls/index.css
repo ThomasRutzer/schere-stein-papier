@@ -11,5 +11,9 @@
 .your-controls__selection {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+}
+
+.your-controls__progress-bar {
+  height: 96px;
+  text-align: center;
 }

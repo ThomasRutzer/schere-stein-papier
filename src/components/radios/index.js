@@ -38,22 +38,24 @@ const YouSelect = () => {
     return () => clearTimeout(timeToChooseTimeout.current)
   }, [now, saveYours])
 
-  const handleChange = (e) => {
+  const handleChange = e => {
+    const selection = e.target.value
+    const targets = Array.from(wrapper.current.childNodes).filter(child => !child.classList.contains(`radio--${selection}`))
     anime({
-      targets: wrapper.current.childNodes,
+      targets,
       translateY: [0, 250],
       duration: 700,
       easing: "easeOutQuad",
       delay: anime.stagger(50),
       complete: () => {
-        saveYours(e.target.value)
+        saveYours(selection)
       },
     })
   }
 
   return (
     <div ref={wrapper} className="radios">
-      <div className="radio">
+      <div className={`radio radio--${SCISSOR}`}>
         <label className="radio__item">
           <span className="radio__input">
             <input
@@ -67,7 +69,7 @@ const YouSelect = () => {
           <span className="radio__label">Scissor ✌️</span>
         </label>
       </div>
-      <div className="radio">
+      <div className={`radio radio--${ROCK}`}>
         <label className="radio__item">
           <span className="radio__input">
             <input
@@ -81,7 +83,7 @@ const YouSelect = () => {
           <span className="radio__label">Rock ✊</span>
         </label>
       </div>
-      <div className="radio">
+      <div className={`radio radio--${PAPER}`}>
         <label className="radio__item">
           <span className="radio__input">
             <input
