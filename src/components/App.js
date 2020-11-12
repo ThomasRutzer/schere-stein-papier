@@ -1,12 +1,12 @@
 import React from "react"
 
 import Scene from "./Scene"
-import UI from "./ui"
+import Gui from "./Gui"
 
 function App() {
   return (
     <>
-      <UI />
+      <Gui />
       <Scene />
     </>
   )

@@ -1,9 +1,9 @@
-import useStore from "./../store"
+import useStore from "../store"
 import Message from "./message"
 import YourControls from "./yourControls"
 import Score from "./score"
 
-const UI = () => {
+const Gui = () => {
   const state = useStore()
 
   return (
@@ -15,4 +15,4 @@ const UI = () => {
   )
 }
 
-export default UI
+export default Gui
