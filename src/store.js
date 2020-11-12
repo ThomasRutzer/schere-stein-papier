@@ -13,11 +13,9 @@ const useStore = create(set => ({
   other: null,
   othersIsChoosing: false,
   youAreChoosing: false,
-  roundCount: 0,
   otherWon: 0,
   youWon: 0,
   currentPose: "CHALLENGING",
-  lastWinner: null,
   sceneLoaded: false,
   message: null,
 
@@ -50,7 +48,6 @@ const useStore = create(set => ({
         : MESSSAGE_YOU_WON
 
     return {
-      lastWinner: winner,
       otherWon: winner === OPPONENT ? state.otherWon + 1 : state.otherWon,
       youWon: winner === YOU ? state.youWon + 1 : state.youWon,
       message
@@ -61,7 +58,6 @@ const useStore = create(set => ({
     other: null,
     othersIsChoosing: false,
     youAreChoosing: false,
-    roundCount: state.roundCount++,
     message: null,
     currentPose: "CHALLENGING"
   })),
