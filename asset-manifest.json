@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/schere-stein-papier/static/css/main.d929b3b6.chunk.css",
-    "main.js": "/schere-stein-papier/static/js/main.c801d008.chunk.js",
-    "main.js.map": "/schere-stein-papier/static/js/main.c801d008.chunk.js.map",
+    "main.js": "/schere-stein-papier/static/js/main.697c1928.chunk.js",
+    "main.js.map": "/schere-stein-papier/static/js/main.697c1928.chunk.js.map",
     "runtime-main.js": "/schere-stein-papier/static/js/runtime-main.58e64be6.js",
     "runtime-main.js.map": "/schere-stein-papier/static/js/runtime-main.58e64be6.js.map",
     "static/js/2.c064cb8b.chunk.js": "/schere-stein-papier/static/js/2.c064cb8b.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.58e64be6.js",
     "static/js/2.c064cb8b.chunk.js",
     "static/css/main.d929b3b6.chunk.css",
-    "static/js/main.c801d008.chunk.js"
+    "static/js/main.697c1928.chunk.js"
   ]
 }
