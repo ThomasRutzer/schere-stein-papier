@@ -47,6 +47,4 @@ const PosePaper = props => {
   )
 }
 
-useGLTF.preload(`${process.env.PUBLIC_URL}/models/paper.glb`)
-
 export default PosePaper

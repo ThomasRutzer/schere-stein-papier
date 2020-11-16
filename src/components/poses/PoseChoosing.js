@@ -4,7 +4,7 @@ import anime from "animejs"
 
 import { MODEL_OUTSIDE_POSITION_TOP, MODEL_INSIDE_POSITION_TOP } from "./../../settings"
 
-export default function Model(props) {
+const PoseChoosing = props => {
   const group = useRef()
   const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/models/choosing.glb`)
 
@@ -59,4 +59,4 @@ export default function Model(props) {
   )
 }
 
-useGLTF.preload(`${process.env.PUBLIC_URL}/models/choosing.glb`)
+export default PoseChoosing

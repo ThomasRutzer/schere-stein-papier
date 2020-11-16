@@ -40,6 +40,4 @@ const PoseScissor = props => {
   )
 }
 
-useGLTF.preload(`${process.env.PUBLIC_URL}/models/scissor.glb`)
-
 export default PoseScissor

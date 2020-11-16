@@ -34,6 +34,4 @@ const PoseChallenging = props => {
   )
 }
 
-useGLTF.preload(`${process.env.PUBLIC_URL}/models/challenging.glb`)
-
 export default PoseChallenging

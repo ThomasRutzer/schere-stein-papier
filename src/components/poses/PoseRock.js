@@ -39,6 +39,4 @@ const PoseRock = props => {
   )
 }
 
-useGLTF.preload(`${process.env.PUBLIC_URL}/models/rock.glb`)
-
 export default PoseRock
