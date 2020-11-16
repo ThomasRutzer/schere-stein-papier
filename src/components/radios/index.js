@@ -48,6 +48,7 @@ const YouSelect = () => {
       easing: "easeOutQuad",
       delay: anime.stagger(50),
       complete: () => {
+        clearTimeout(timeToChooseTimeout.current)
         saveYours(selection)
       },
     })
