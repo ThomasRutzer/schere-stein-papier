@@ -11,13 +11,13 @@ function Oppenent() {
   const saveOther = useStore(state => state.saveOther)
 
   const poseEnterStart = pose => {
-    if (pose === "REVEAL_SCISSOR" || pose === "REVEAL_PAPER" || pose === "REVEAL_ROCK") {
+    if (pose === "REVEAL_SCISSORS" || pose === "REVEAL_PAPER" || pose === "REVEAL_ROCK") {
       reveal()
     }
   }
 
   const poseEnterComplete = pose => {
-    if (pose === "REVEAL_SCISSOR" || pose === "REVEAL_PAPER" || pose === "REVEAL_ROCK") {
+    if (pose === "REVEAL_SCISSORS" || pose === "REVEAL_PAPER" || pose === "REVEAL_ROCK") {
       saveScore()
       reset()
     }

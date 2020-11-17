@@ -1,19 +1,19 @@
 import { 
   YOU, OPPONENT, DRAW, YOUR_SELECTION_NOT_SELECTED,
-  SCISSOR, ROCK, PAPER
+  SCISSORS, ROCK, PAPER
  } from "./../settings"
 
 const config = {
-  [SCISSOR]: {
+  [SCISSORS]: {
     beats: PAPER,
     loses: ROCK
   },
   [PAPER]: {
     beats: ROCK,
-    loses: SCISSOR
+    loses: SCISSORS
   },
   [ROCK]: {
-    beats: SCISSOR,
+    beats: SCISSORS,
     loses: PAPER
   },
 }

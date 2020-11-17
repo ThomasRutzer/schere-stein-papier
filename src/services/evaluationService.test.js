@@ -1,11 +1,11 @@
 import EvaluationService from "./EvaluationService"
-import { ROCK, SCISSOR, DRAW, OPPONENT, YOU } from "./../settings"
+import { ROCK, SCISSORS, DRAW, OPPONENT, YOU } from "./../settings"
 
 describe("EvaluationService", () => {
   test("static method getWinner", () => {
-    const youWin = EvaluationService.getWinner(ROCK, SCISSOR)
-    const opponentWin = EvaluationService.getWinner(SCISSOR, ROCK)
-    const itsADraw = EvaluationService.getWinner(SCISSOR, SCISSOR)
+    const youWin = EvaluationService.getWinner(ROCK, SCISSORS)
+    const opponentWin = EvaluationService.getWinner(SCISSORS, ROCK)
+    const itsADraw = EvaluationService.getWinner(SCISSORS, SCISSORS)
 
     expect(youWin).toBe(YOU)
     expect(opponentWin).toBe(OPPONENT)

@@ -5,9 +5,9 @@ import anime from "animejs"
 import { MODEL_OUTSIDE_POSITION_TOP } from "../../settings"
 import useEnterAnimationFromTop from "./useEnterAnimationFromTop"
 
-const PoseScissor = props => {
+const PoseScissors = props => {
   const group = useRef()
-  const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/models/scissor.glb`)
+  const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/models/scissors.glb`)
   const enterAnimation = useEnterAnimationFromTop()
 
   useEffect(() => {
@@ -18,8 +18,8 @@ const PoseScissor = props => {
   const enter = () => {
     const tl = anime.timeline({
       duration: enterAnimation.settings.duration,
-      begin: () => props.poseEnterStart("REVEAL_SCISSOR"),
-      complete: () => props.poseEnterComplete("REVEAL_SCISSOR")
+      begin: () => props.poseEnterStart("REVEAL_SCISSORS"),
+      complete: () => props.poseEnterComplete("REVEAL_SCISSORS")
     })
 
     tl
@@ -40,4 +40,4 @@ const PoseScissor = props => {
   )
 }
 
-export default PoseScissor
+export default PoseScissors

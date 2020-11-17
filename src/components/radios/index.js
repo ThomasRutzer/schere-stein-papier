@@ -3,7 +3,7 @@ import anime from "animejs"
 
 import {
   TIME_TO_CHOOSE, YOUR_SELECTION_NOT_SELECTED,
-  SCISSOR, ROCK, PAPER
+  SCISSORS, ROCK, PAPER
 } from "../../settings"
 import useStore from "../../store"
 import "./index.css"
@@ -56,20 +56,6 @@ const YouSelect = () => {
 
   return (
     <div ref={wrapper} className="radios">
-      <div className={`radio radio--${SCISSOR}`}>
-        <label className="radio__item">
-          <span className="radio__input">
-            <input
-              onChange={handleChange}
-              type="radio"
-              name="you-select"
-              value={SCISSOR}
-            />
-            <span className="radio__control"></span>
-          </span>
-          <span className="radio__label">Scissor ✌️</span>
-        </label>
-      </div>
       <div className={`radio radio--${ROCK}`}>
         <label className="radio__item">
           <span className="radio__input">
@@ -82,6 +68,20 @@ const YouSelect = () => {
             <span className="radio__control"></span>
           </span>
           <span className="radio__label">Rock ✊</span>
+        </label>
+      </div>
+      <div className={`radio radio--${SCISSORS}`}>
+        <label className="radio__item">
+          <span className="radio__input">
+            <input
+              onChange={handleChange}
+              type="radio"
+              name="you-select"
+              value={SCISSORS}
+            />
+            <span className="radio__control"></span>
+          </span>
+          <span className="radio__label">Scissors ✌️</span>
         </label>
       </div>
       <div className={`radio radio--${PAPER}`}>

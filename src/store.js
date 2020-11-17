@@ -3,7 +3,7 @@ import create from "zustand"
 import EvaluationService from "./services/evaluationService"
 import {
   YOU, OPPONENT, DRAW,
-  ROCK, SCISSOR, PAPER,
+  ROCK, SCISSORS, PAPER,
   MESSAGE_DRAW, MESSAGE_OPPONENT_WON, MESSSAGE_YOU_WON, MESSAGE_START, MESSAGE_REVEAL
 } from "./settings"
 import randomFromStringList from "./utils/randomFromStringList"
@@ -36,7 +36,7 @@ const useStore = create(set => ({
     }
   }),
   saveOther: () => set(state => ({
-    other: randomFromStringList([ROCK, SCISSOR, PAPER]),
+    other: randomFromStringList([ROCK, SCISSORS, PAPER]),
     othersIsChoosing: false,
     youAreChoosing: true
   })),
