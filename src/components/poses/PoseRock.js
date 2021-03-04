@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react"
-import { useGLTF } from "@react-three/drei/useGLTF"
+import { useGLTF } from "@react-three/drei"
 import anime from "animejs"
 
 import { MODEL_OUTSIDE_POSITION_TOP } from "../../settings"
