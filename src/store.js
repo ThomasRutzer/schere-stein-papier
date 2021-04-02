@@ -15,12 +15,15 @@ const useStore = create(set => ({
   youAreChoosing: false,
   otherWon: 0,
   youWon: 0,
-  currentPose: "CHALLENGING",
+  currentPose: "",
   sceneLoaded: false,
   message: null,
+  initialized: false,
 
   init: () => set(state => ({
-    message: MESSAGE_START
+    message: MESSAGE_START,
+    currentPose: "CHALLENGING",
+    initialized: true
   })),
   start: () => set(state => ({
     othersIsChoosing: true,

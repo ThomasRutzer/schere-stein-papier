@@ -1,4 +1,4 @@
-import React, { Suspense } from "react"
+import React, { Suspense, useEffect } from "react"
 
 import useStore from "./../store"
 import Loading from "./Loading"
@@ -28,7 +28,7 @@ function Oppenent() {
   }
 
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={null}>
       <PoseSwitcher poseEnterStart={poseEnterStart} poseEnterComplete={poseEnterComplete} />
     </Suspense>
   )
