@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/schere-stein-papier/static/css/main.56aeb2b9.chunk.css",
-    "main.js": "/schere-stein-papier/static/js/main.a37f38b3.chunk.js",
-    "main.js.map": "/schere-stein-papier/static/js/main.a37f38b3.chunk.js.map",
+    "main.js": "/schere-stein-papier/static/js/main.8e734ab9.chunk.js",
+    "main.js.map": "/schere-stein-papier/static/js/main.8e734ab9.chunk.js.map",
     "runtime-main.js": "/schere-stein-papier/static/js/runtime-main.0652f692.js",
     "runtime-main.js.map": "/schere-stein-papier/static/js/runtime-main.0652f692.js.map",
-    "static/js/2.48cc5bc8.chunk.js": "/schere-stein-papier/static/js/2.48cc5bc8.chunk.js",
-    "static/js/2.48cc5bc8.chunk.js.map": "/schere-stein-papier/static/js/2.48cc5bc8.chunk.js.map",
+    "static/js/2.7277c22c.chunk.js": "/schere-stein-papier/static/js/2.7277c22c.chunk.js",
+    "static/js/2.7277c22c.chunk.js.map": "/schere-stein-papier/static/js/2.7277c22c.chunk.js.map",
     "index.html": "/schere-stein-papier/index.html",
     "static/css/main.56aeb2b9.chunk.css.map": "/schere-stein-papier/static/css/main.56aeb2b9.chunk.css.map",
-    "static/js/2.48cc5bc8.chunk.js.LICENSE.txt": "/schere-stein-papier/static/js/2.48cc5bc8.chunk.js.LICENSE.txt"
+    "static/js/2.7277c22c.chunk.js.LICENSE.txt": "/schere-stein-papier/static/js/2.7277c22c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0652f692.js",
-    "static/js/2.48cc5bc8.chunk.js",
+    "static/js/2.7277c22c.chunk.js",
     "static/css/main.56aeb2b9.chunk.css",
-    "static/js/main.a37f38b3.chunk.js"
+    "static/js/main.8e734ab9.chunk.js"
   ]
 }
