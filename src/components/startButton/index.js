@@ -8,18 +8,19 @@ import "./index.css"
 const Button = () => {
   const wrapper = useRef()
   const start = useStore(state => state.start)
+  const pose = useStore(state => state.currentPose)
 
   useEffect(() => {
-    if (!wrapper.current) return
-    
-    anime({
-      targets: wrapper.current,
-      translateY: ["250px", 0],
-      duration: CONTROL_REVEAL_TRANSITION_DURATION / 2,
-      delay: 420,
-      easing: "linear"
-    })
-  }, [wrapper])
+    if (pose === "CHALLENGING") {
+      anime({
+        targets: wrapper.current,
+        translateY: ["250px", 0],
+        duration: CONTROL_REVEAL_TRANSITION_DURATION / 2,
+        delay: 420,
+        easing: "linear"
+      })
+    }
+  }, [pose])
 
   const startGame = () => {
     anime({
@@ -31,9 +32,7 @@ const Button = () => {
     })
   }
 
-  return (
-    <button ref={wrapper} className="start-button" onClick={startGame} >Start</button>
-  )
+  return <button ref={wrapper} className="start-button" onClick={startGame} >Start</button>
 }
 
 export default Button
