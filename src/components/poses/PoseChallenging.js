@@ -8,11 +8,6 @@ const PoseChallenging = props => {
   const group = useRef()
   const { nodes, materials } = useGLTF(`${process.env.PUBLIC_URL}/models/challenging.glb`)
 
-  useEffect(() => {
-    if (!group.current) return
-    enter()
-  }, [group])
-
   const enter = () => {
     anime({
       targets: group.current.position,
@@ -25,6 +20,8 @@ const PoseChallenging = props => {
       duration: CONTROL_REVEAL_TRANSITION_DURATION
     })
   }
+
+  useEffect(enter, [group])
 
   return (
     <group ref={group} {...props} position={MODEL_OUTSIDE_POSITION_BOTTOM}>
