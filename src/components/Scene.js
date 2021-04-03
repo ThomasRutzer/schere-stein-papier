@@ -10,7 +10,9 @@ function Scene() {
   const initialized = useStore(state => state.initialized)
 
   return (
-    <Canvas pixelRatio={ Math.min(window.devicePixelRatio, 2)}>
+    <Canvas
+      gl={{ antialias: window.devicePixelRatio <= 1 }}
+      pixelRatio={Math.min(window.devicePixelRatio, 2)}>
       <Loading />
       <CameraByFrameRotation />
       <ambientLight />
