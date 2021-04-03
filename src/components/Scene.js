@@ -10,7 +10,7 @@ function Scene() {
   const initialized = useStore(state => state.initialized)
 
   return (
-    <Canvas>
+    <Canvas pixelRatio={ Math.min(window.devicePixelRatio, 2)}>
       <Loading />
       <CameraByFrameRotation />
       <ambientLight />
