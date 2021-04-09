@@ -1,30 +1,63 @@
 .start-button {
-	color: var(--color-white);
-	background: none;
+  position: relative;
 	cursor: pointer;
 	display: inline-block;
-	text-transform: uppercase;
-	outline: none;
-	position: relative;
-  background: var(--color-red);
-	color: #fff;
-	box-shadow: 0 6px var(--color-red-shaded);
-  transition: none;
   border-radius: 50%;
-  border: none;
 	width: 90px;
   height: 90px;
   font-family: inherit;
   font-size: 18px;
+  text-transform: uppercase;
   transform: translateY(250px);
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+}
+
+.start-button__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--color-red-shaded);
+}
+
+.start-button__front {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 18px;
+	color: var(--color-white);
+  background: var(--color-red);
+  will-change: transform;
+  transform: translateY(-6px);
+  transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
 }
 
 .start-button:hover {
-	box-shadow: 0 8px var(--color-red-shaded);
-	top: -2px;
+  filter: brightness(110%);
 }
 
-.start-button:active {
-	box-shadow: 0 0 var(--color-red-shaded);
-	top: 6px;
+.start-button:hover .start-button__front {
+  transform: translateY(-8px);
+  transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.start-button:active .start-button__front {
+  transform: translateY(0px);
+  transition: transform 34ms;
+}
+
+.start-button:focus:not(:focus-visible) {
+  outline: none;
 }

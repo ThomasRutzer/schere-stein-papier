@@ -32,7 +32,12 @@ const Button = () => {
     })
   }
 
-  return <button ref={wrapper} className="start-button" onClick={startGame} >Start</button>
+  return (
+    <button ref={wrapper} className="start-button" onClick={startGame}>
+      <span className="start-button__back"></span>
+      <span className="start-button__front">Start</span>
+    </button>
+  )
 }
 
 export default Button

@@ -7,35 +7,58 @@
 
 .radio {
   position: relative;
-  color: var(--color-secondary);
-  background: var(--color-white);
-  border-radius: var(--border-radius-default);
-  box-shadow: 0 6px var(--color-white-shaded);
+  display: inline-block;
   transform: translateY(250px);
+	cursor: pointer;
+  background: transparent;
+  cursor: pointer;
+  transition: filter 250ms;
+  user-select: none;
 }
 
-.radio:hover {
-	box-shadow: 0 8px var(--color-white-shaded);
-	top: -2px;
-}
-
-.radio:active {
-	box-shadow: 0 0 var(--color-white-shaded);
-	top: 6px;
+.radio__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-white-shaded);
+  border-radius: var(--border-radius-default);
 }
 
 .radio__item {
+  position: relative;
+  height: 100%;
+  width: 100%;
   display: flex;
-  align-self: center;
+  align-items: center;
+  border-radius: var(--border-radius-default);
+  color: var(--color-secondary);
+  font-size: 18px;
   gap: 8px;
+  background: var(--color-white);
+  will-change: transform;
   padding: 8px;
+  box-sizing: border-box;
+  transform: translateY(-6px);
+  transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
 }
 
-.radio__input {
-  display: flex;
+.radio:hover {
+  filter: brightness(110%);
 }
 
-.radio__input input {
+.radio:hover .radio__item {
+  transform: translateY(-8px);
+  transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.radio:active .radio__item {
+  transform: translateY(0px);
+  transition: transform 34ms;
+}
+
+.radio input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -46,6 +69,7 @@
 }
 
 .radio__control {
+  position: relative;
   display: block;
   width: 16px;
   height: 16px;

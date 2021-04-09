@@ -68,44 +68,41 @@ const YouSelect = () => {
   return (
     <div ref={wrapper} className="radios">
       <div className={`radio radio--${ROCK}`}>
+        <span className="radio__back"></span>
         <label className="radio__item">
-          <span className="radio__input">
-            <input
-              onChange={handleChange}
-              type="radio"
-              name="you-select"
-              value={ROCK}
-            />
-            <span className="radio__control"></span>
-          </span>
+          <input
+            onChange={handleChange}
+            type="radio"
+            name="you-select"
+            value={ROCK}
+          />
+          <span className="radio__control"></span>
           <span className="radio__label">Rock ✊</span>
         </label>
       </div>
       <div className={`radio radio--${SCISSORS}`}>
+        <span className="radio__back"></span>
         <label className="radio__item">
-          <span className="radio__input">
-            <input
-              onChange={handleChange}
-              type="radio"
-              name="you-select"
-              value={SCISSORS}
-            />
-            <span className="radio__control"></span>
-          </span>
+          <input
+            onChange={handleChange}
+            type="radio"
+            name="you-select"
+            value={SCISSORS}
+          />
+          <span className="radio__control"></span>
           <span className="radio__label">Scissors ✌️</span>
         </label>
       </div>
       <div className={`radio radio--${PAPER}`}>
+        <span className="radio__back"></span>
         <label className="radio__item">
-          <span className="radio__input">
-            <input
-              onChange={handleChange}
-              type="radio"
-              name="you-select"
-              value={PAPER}
-            />
-            <span className="radio__control"></span>
-          </span>
+          <input
+            onChange={handleChange}
+            type="radio"
+            name="you-select"
+            value={PAPER}
+          />
+          <span className="radio__control"></span>
           <span className="radio__label">Paper ✋</span>
         </label>
       </div>
