@@ -9,7 +9,6 @@
   position: relative;
   display: inline-block;
   transform: translateY(250px);
-	cursor: pointer;
   background: transparent;
   cursor: pointer;
   transition: filter 250ms;
@@ -36,6 +35,7 @@
   color: var(--color-secondary);
   font-size: 18px;
   gap: 8px;
+  cursor: pointer;
   background: var(--color-white);
   will-change: transform;
   padding: 8px;
